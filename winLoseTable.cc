@@ -83,9 +83,6 @@ void WinLoseTable::showSequence(State const& s) const
               continue;
             }
             if(ia==0)break;
-            //if((ia/1000000000%10+ia/10000000000)%2==0){
-            //  State news(ia,true);std::cerr << news.rotateChangeTurn().show() << std::endl;showSequence(news.rotateChangeTurn());}
-            //else{State news(ia,true);showSequence(news);}
             State news(ia,true);showSequence(news);
             break;
         }
