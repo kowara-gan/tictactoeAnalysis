@@ -1,4 +1,5 @@
 #ifndef _TICTOCTOE_H
+
 #define _TICTOCTOE_H
 #include <cassert>
 #include <iostream>
@@ -27,8 +28,8 @@ enum Player{
 struct Ptype{
   enum {
     EMPTY=0,
-    BLACK=1,
-    WHITE=-1,
+    X=1,
+    O=-1,
   };
 };
 
@@ -246,7 +247,7 @@ struct State{
       for(int y=0;y<3;y++){
           if(board[x*3+y]==0){
               State s(*this);
-              s.board[x*3+y]=Ptype::BLACK;
+              s.board[x*3+y]=Ptype::X;
               s.stands[0]--;
               s.changeTurn();
               ret.push_back(s.normalize());
@@ -261,7 +262,7 @@ struct State{
       for(int y=0;y<3;y++){
           if(board[x*3+y]==0){
               State s(*this);
-              s.board[x*3+y]=Ptype::BLACK;
+              s.board[x*3+y]=Ptype::X;
               s.stands[0]--;
               s.changeTurn();
               ret.push_back(s.rotateChangeTurn().show());
@@ -277,9 +278,9 @@ struct State{
       for(int y=0;y<3;y++){
         if(board[x*3+y]==0){
           std::cerr << " |";
-        }else if(board[x*3+y]==p*-1){
-          std::cerr << "x|";
         }else if(board[x*3+y]==p*1){
+          std::cerr << "x|";
+        }else if(board[x*3+y]==p*-1){
           std::cerr << "o|";
         }
       }
