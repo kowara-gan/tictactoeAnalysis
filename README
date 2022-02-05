@@ -2,13 +2,16 @@ This is the retrograde analysis program for Tic-tac-toe.
 
 ##Description
 you can figure out the best possible move from everypossible game position.
+
 ##Feature
 generate three binary files.
 -allstates.dat is all possible position in Tic-tac-toe.
 -winLoss.dat is all possible position's theoretical value in Tic-tac-toe.
 -winLossCount.dat is all possible position's Number of times it takes to checkmate in Tic-tac-toe.
+
 ##Requirement
 if you use Mac, you can compile with Makefile.
+
 ##Usage
 1. ./makeAllState.exe
 you can generate allstates.dat and result below.
@@ -42,6 +45,7 @@ iteration 6
 1 : 390
 
 3. ./checkState.exe
+you can check starting position's theoretical value. 0 means tie. 1 means win. -1 means loss.
 ------------------
 45000000000
 TURNofX 0(0)
@@ -83,7 +87,6 @@ TURNofX 0(0)
 | | |x|
 
 you can check next position's theoretical value when you type in 11-digit notation.
-example
 44000020000
 ------------------
 44000020000
