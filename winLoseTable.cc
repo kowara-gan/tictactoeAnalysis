@@ -43,7 +43,7 @@ int WinLoseTable::getWL(uint64 v,int& wlc) const
   return (int)getWinLose(index);
 }
 uint64 uinttoState(uint64 a){
-    State s(a,BLACK);
+    State s(a,FIRST);
     return s.show();
 }
 void draw(uint64 a){
@@ -58,9 +58,9 @@ void WinLoseTable::showSequence(State const& s) const
   int index=allS.find(v);
   std::cerr << "------------------" << std::endl;
   std::cerr << s.show() << std::endl;
-  if((s.show()/1000000000%10+s.show()/10000000000)%2==0)std::cerr << "TURNofX " ;
-  else std::cerr << "TURNofO " ;
-  std::cerr << (int)(s.turn==BLACK ? -getWinLose(index) : getWinLose(index)) <<
+  if((s.show()/1000000000%10+s.show()/10000000000)%2==0)std::cerr << "TURNofO " ;
+  else std::cerr << "TURNofX " ;
+  std::cerr << (int)(s.turn==FIRST ? -getWinLose(index) : getWinLose(index)) <<
     "(" << (int)getWinLoseCount(index) << ")" << std::endl;
             vUint64 ns=s.nextNStates();
             vUint64 shows=s.nextShowStates();

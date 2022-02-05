@@ -25,7 +25,7 @@ int main()
   vInt count(3);
   for(size_t i=0;i<dSize;i++){
     State s(allIS[i]);
-    if(s.isLoseBlack()){
+    if(s.isLoseFirst()){
       winLoss[i]=-1;
       count[0]++;
     }

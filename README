@@ -1,0 +1,125 @@
+This is the retrograde analysis program for Tic-tac-toe.
+
+##Description
+you can figure out the best possible move from everypossible game position.
+##Feature
+generate three binary files.
+-allstates.dat is all possible position in Tic-tac-toe.
+-winLoss.dat is all possible position's theoretical value in Tic-tac-toe.
+-winLossCount.dat is all possible position's Number of times it takes to checkmate in Tic-tac-toe.
+##Requirement
+if you use Mac, you can compile with Makefile.
+##Usage
+1. ./makeAllState.exe
+you can generate allstates.dat and result below.
+765
+
+2. ./makeWinLose.exe
+you can generate winLoss.dat, winLossCount.dat and result below.
+iteration 1
+-1 : 135
+0 : 630
+1 : 0
+iteration 2
+-1 : 135
+0 : 309
+1 : 321
+iteration 3
+-1 : 207
+0 : 237
+1 : 321
+iteration 4
+-1 : 207
+0 : 186
+1 : 372
+iteration 5
+-1 : 224
+0 : 169
+1 : 372
+iteration 6
+-1 : 224
+0 : 151
+1 : 390
+
+3. ./checkState.exe
+------------------
+45000000000
+TURNofX 0(0)
+1 : 44000000002 0(0)
+|x| | |
+| | | |
+| | | |
+2 : 44000000020 0(0)
+| |x| |
+| | | |
+| | | |
+3 : 44000000200 0(0)
+| | |x|
+| | | |
+| | | |
+4 : 44000002000 0(0)
+| | | |
+|x| | |
+| | | |
+5 : 44000020000 0(0)
+| | | |
+| |x| |
+| | | |
+6 : 44000200000 0(0)
+| | | |
+| | |x|
+| | | |
+7 : 44002000000 0(0)
+| | | |
+| | | |
+|x| | |
+8 : 44020000000 0(0)
+| | | |
+| | | |
+| |x| |
+9 : 44200000000 0(0)
+| | | |
+| | | |
+| | |x|
+
+you can check next position's theoretical value when you type in 11-digit notation.
+example
+44000020000
+------------------
+44000020000
+TURNofO 0(0)
+1 : 34000010002 0(0)
+|o| | |
+| |x| |
+| | | |
+2 : 34000010020 -1(5)
+| |o| |
+| |x| |
+| | | |
+3 : 34000010200 0(0)
+| | |o|
+| |x| |
+| | | |
+4 : 34000012000 -1(5)
+| | | |
+|o|x| |
+| | | |
+5 : 34000210000 -1(5)
+| | | |
+| |x|o|
+| | | |
+6 : 34002010000 0(0)
+| | | |
+| |x| |
+|o| | |
+7 : 34020010000 -1(5)
+| | | |
+| |x| |
+| |o| |
+8 : 34200010000 0(0)
+| | | |
+| |x| |
+| | |o|
+
+##License
+Please read LICEMSE.

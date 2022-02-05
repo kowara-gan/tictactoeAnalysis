@@ -20,10 +20,10 @@ int main()
     q.pop_front();
     hUint64::const_iterator it=v.find(is);
     if(it==v.end()){
-      State s(is,BLACK);
+      State s(is,FIRST);
       allIS.push_back(is);
       v.insert(is);
-      if(!s.isLoseBlack()){
+      if(!s.isLoseFirst()){
         //if(true){
 	    vUint64 ns=s.nextNStates();
 	    for(size_t i=0;i<ns.size();i++)
