@@ -1,4 +1,4 @@
-ALL : makeAllState makeWinLose checkState
+ALL : makeAllState makeWinLose checkState clean
 CXX = g++
 tictoctoe.o : tictoctoe.h
 #
@@ -15,4 +15,4 @@ checkState.o : tictoctoe.h
 checkState : checkState.o tictoctoe.o allStateTable.o winLoseTable.o
 	$(CXX) -o checkState checkState.o tictoctoe.o allStateTable.o winLoseTable.o
 clean:
-	-rm *.o
+	del *.o

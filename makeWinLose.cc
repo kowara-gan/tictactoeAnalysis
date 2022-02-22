@@ -3,7 +3,7 @@
 
 int newWinLoss(AllStateTable const& allIS,vChar const& winLoss,uint64 v){
   State s(v);
-  vUint64 ns=s.nextNStates();
+  vUint64 ns=s.nextNormalizeStates();
   if(ns.size()==0)return 0;
   bool alllose=true;
   for(size_t j=0;j<ns.size();j++){
