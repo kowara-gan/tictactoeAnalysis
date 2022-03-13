@@ -34,16 +34,16 @@ struct Ptype{
 };
 
 struct State{
-    char board[3*3];//position information
-    int stands[2];//number it can move
-    int turn;//FIRST(1) or SECOND(-1)
-    State(){
-    for(int x=0;x<3;x++)
-      for(int y=0;y<3;y++)
-      board[x*3+y]=Ptype::EMPTY;
-    stands[0]=5;
-    stands[1]=4;
-    turn=FIRST;
+  char board[3*3];//position information
+  int stands[2];//number it can move
+  int turn;//FIRST(1) or SECOND(-1)
+  State(){
+  for(int x=0;x<3;x++)
+    for(int y=0;y<3;y++)
+    board[x*3+y]=Ptype::EMPTY;
+  stands[0]=5;
+  stands[1]=4;
+  turn=FIRST;
   }
   //9-digit notation of position + 2-digit notation of movablenum
   uint64 showStateNum() const{
@@ -84,7 +84,7 @@ struct State{
     if(pl==FIRST) *this=makeFirstFromUint64(p);
     else *this=makeFirstFromUint64(p).rotateChangeTurnState();
   }
-  static State makeFirstFromUint64(uint64 p){
+  State makeFirstFromUint64(uint64 p){
     State s;
     int i=0;
     for(int x=0;x<3;x++)
@@ -113,12 +113,12 @@ struct State{
     return ret;
   }
   //Invert turn
-  void changeTurn()
+  private: void changeTurn()
   {
     turn = -turn;
   }
   //Invert the position upside down
-  void flipVertically()
+  private: void flipVertically()
   {
     State ret;
     for(int x=0;x<3;x++)
@@ -129,7 +129,7 @@ struct State{
     *this=ret;
   }
   //Invert the position diagonally
-  void flipDiagonally()
+  private: void flipDiagonally()
   {
     State ret;
     ret.board[0]= board[0];
@@ -146,6 +146,7 @@ struct State{
     *this=ret;
   }
   //Generate State information with 2bit
+  public: 
   uint64 packBit() const
   {
     assert(turn==FIRST);
