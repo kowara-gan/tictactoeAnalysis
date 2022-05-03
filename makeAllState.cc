@@ -14,7 +14,7 @@ int main()
   vUint64 allIS;
   dUint64 q;
   hUint64 v;
-  q.push_back(State().normalizeNum());
+  q.push_back(State().getNormalizeBit());
   while(!q.empty()){
     uint64 is=q.front();
     q.pop_front();
@@ -25,7 +25,7 @@ int main()
       v.insert(is);
       if(!s.isLoseFirst()){
         //if(true){
-	    vUint64 ns=s.nextNormalizeStates();
+	    vUint64 ns=s.nextNormalizeBits();
 	    for(size_t i=0;i<ns.size();i++)
         q.push_back(ns[i]);
       }

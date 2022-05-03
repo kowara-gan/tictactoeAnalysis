@@ -42,28 +42,25 @@ int WinLoseTable::getWL(uint64 v,int& wlc) const
   wlc = (int)getWinLoseCount(index);
   return (int)getWinLose(index);
 }
-uint64 uinttoState(uint64 a){
-    State s(a,FIRST);
-    return s.showStateNum();
-}
+
 void draw(uint64 a){
   State s(a,true);
   s.draw();
 }
+
 void WinLoseTable::showSequence(State const& s) const
 {
   cin.exceptions(ios::failbit);
   while(true){
-  uint64 v=s.normalizeNum();
+  uint64 v=s.getNormalizeBit();
   int index=allS.find(v);
   std::cerr << "------------------" << std::endl;
-  std::cerr << s.showStateNum() << std::endl;
-  if((s.showStateNum()/1000000000%10+s.showStateNum()/10000000000)%2==0)std::cerr << "TURNofO " ;
-  else std::cerr << "TURNofX " ;
+  std::cerr << s.getStateNum() << std::endl;
+  s.isFirst()? std::cerr << "TURNofX " : std::cerr << "TURNofO " ;
   std::cerr << (int)(s.turn==FIRST ? getWinLose(index) : -getWinLose(index)) <<
     "(" << (int)getWinLoseCount(index) << ")" << std::endl;
-            vUint64 ns=s.nextNormalizeStates();
-            vUint64 shows=s.nextShowStates();
+            vUint64 ns=s.nextNormalizeBits();
+            vUint64 shows=s.nextStateNums();
             if(ns.size()==0)break;
             int i=1;
             for(auto &a : ns){
